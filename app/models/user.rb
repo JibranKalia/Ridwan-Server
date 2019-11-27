@@ -32,7 +32,7 @@
 
 class User < ApplicationRecord
   devise :database_authenticatable, :recoverable,
-         :trackable, :validatable, :registerable
+         :validatable, :registerable
 
   # note that this include statement comes AFTER the devise block above
   include DeviseTokenAuth::Concerns::User
