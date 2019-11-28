@@ -30,10 +30,6 @@
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 
-class User < ApplicationRecord
-  devise :database_authenticatable, :recoverable,
-         :validatable, :registerable
-
-  # note that this include statement comes AFTER the devise block above
-  include DeviseTokenAuth::Concerns::User
+class UserSerializer < ActiveModel::Serializer
+  attributes :id, :first_name, :last_name
 end
