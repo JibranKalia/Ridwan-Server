@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-    render json: @users
+  def show
+    @user = User.find(params[:id])
+    authorize @user
   end
 end
