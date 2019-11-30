@@ -1,13 +1,6 @@
 
-class ApplicationPolicy
-  attr_reader :user, :record
-
-  def initialize(current_user, record)
-    @current_user = current_user
-    @user = record
-  end
-
+class UserPolicy < ApplicationPolicy
   def show?
-    @current_user == @user
+    @user == @record
   end
 end
