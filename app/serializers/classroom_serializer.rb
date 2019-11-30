@@ -15,6 +15,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-class UserSerializer < ActiveModel::Serializer
+class ClassroomSerializer < ActiveModel::Serializer
   attributes :id, :name
 end

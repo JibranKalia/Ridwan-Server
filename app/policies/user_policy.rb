@@ -1,5 +1,5 @@
 
-class V1::UserPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   def show?
     @user == @record
   end
