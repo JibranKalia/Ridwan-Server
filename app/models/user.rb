@@ -9,8 +9,9 @@
 #  confirmed_at           :datetime
 #  email                  :string
 #  encrypted_password     :string           default(""), not null
+#  first_name             :string           not null
 #  image                  :string
-#  name                   :string
+#  last_name              :string           not null
 #  nickname               :string
 #  provider               :string           default("email"), not null
 #  remember_created_at    :datetime
@@ -34,6 +35,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :recoverable,
          :validatable, :registerable
 
-  # note that this include statement comes AFTER the devise block above
   include DeviseTokenAuth::Concerns::User
 end
