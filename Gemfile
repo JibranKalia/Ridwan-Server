@@ -24,6 +24,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rack-cors'
 gem 'active_model_serializers', '~> 0.10.10'
 gem 'devise_token_auth'
+gem 'enumerize'
 gem 'pg'
 gem "pundit"
 gem 'rack-cors'
