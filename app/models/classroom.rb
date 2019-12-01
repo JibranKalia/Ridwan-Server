@@ -15,6 +15,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-
 class Classroom < ApplicationRecord
+  belongs_to :user, required: true
 end

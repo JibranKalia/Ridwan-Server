@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
-  resources :users
+  resources :users, only: [:show]
+  resources :classrooms, only: [:index, :show, :create]
 end
