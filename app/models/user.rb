@@ -40,5 +40,5 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
-  enumerize :type, in: [:teacher], predicates: true
+  enumerize :type, in: [:teacher, :student], predicates: true
 end
