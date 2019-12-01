@@ -1,4 +1,3 @@
-
 class ClassroomPolicy < ApplicationPolicy
   def create?
     user.teacher?
