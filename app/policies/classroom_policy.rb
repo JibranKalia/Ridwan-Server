@@ -1,6 +1,6 @@
 class ClassroomPolicy < ApplicationPolicy
   def index?
-    user.teacher?
+    record.user == user
   end
 
   def create?
@@ -8,6 +8,10 @@ class ClassroomPolicy < ApplicationPolicy
   end
 
   def update?
+    index?
+  end
+
+  def show?
     index?
   end
 
