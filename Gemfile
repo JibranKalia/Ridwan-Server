@@ -28,6 +28,7 @@ gem 'enumerize'
 gem 'pg'
 gem "pundit"
 gem 'rack-cors'
+gem "rack-timeout"
 
 group :development, :test do
 end
