@@ -13,8 +13,11 @@ class ClassroomsController < ApplicationController
   def create
     @classroom = Classroom.new(resource_params)
     authorize @classroom
-    @classroom.save
-    render json: @classroom
+    if @classroom.save
+      render json: @classroom
+    else
+      render json: @classroom, status: :unprocessable_entity, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
+    end
   end
 
   def destroy
