@@ -1,18 +1,18 @@
 class ClassroomPolicy < ApplicationPolicy
-  def index?
+  def create?
     record.user == user
   end
 
-  def create?
-    index?
-  end
-
   def update?
-    index?
+    create?
   end
 
   def show?
-    index?
+    create?
+  end
+
+  def destroy?
+    create?
   end
 
   class Scope < ApplicationPolicy::Scope

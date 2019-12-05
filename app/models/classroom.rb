@@ -17,4 +17,6 @@
 
 class Classroom < ApplicationRecord
   belongs_to :user, required: true
+
+  validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :user_id }
 end
