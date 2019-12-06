@@ -15,9 +15,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-class StudentSerializer < ActiveModel::Serializer
-  attributes :id, :first_name, :last_name
-
-  has_many :enrollments
-  has_many :classrooms
+class EnrollmentSerializer < ActiveModel::Serializer
+  belongs_to :classroom
+  belongs_to :student
 end
