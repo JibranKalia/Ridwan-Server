@@ -7,7 +7,7 @@ class ClassroomsController < ApplicationController
   def show
     @classroom = Classroom.find(params[:id])
     authorize @classroom
-    render json: @classroom
+    render json: @classroom, include: :students
   end
 
   def create
