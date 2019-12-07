@@ -1,6 +1,7 @@
 class ClassroomsController < ApplicationController
   def index
     @classrooms = policy_scope(Classroom)
+    @classrooms.order(name: :desc)
     render json: @classrooms
   end
 
