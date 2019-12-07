@@ -3,9 +3,7 @@ class EnrollmentPolicy < ApplicationPolicy
     record.classroom.user = user
   end
 
-  class Scope < ApplicationPolicy::Scope
-    def resolve
-      []
-    end
+  def destroy?
+    show?
   end
 end

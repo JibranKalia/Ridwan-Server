@@ -12,4 +12,7 @@
 class Student < ApplicationRecord
   has_many :enrollments, dependent: :destroy
   has_many :classrooms, through: :enrollments
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
