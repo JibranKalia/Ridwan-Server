@@ -17,4 +17,7 @@
 
 class ClassroomSerializer < ActiveModel::Serializer
   attributes :id, :name
+
+  has_many :enrollments
+  has_many :students
 end

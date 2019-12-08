@@ -15,10 +15,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 
-class Classroom < ApplicationRecord
-  belongs_to :user, required: true
-  has_many :enrollments, dependent: :destroy
-  has_many :students, through: :enrollments
+class StudentSerializer < ActiveModel::Serializer
+  attributes :id, :first_name, :last_name
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :user_id }
+  has_many :enrollments
+  has_many :classrooms
 end

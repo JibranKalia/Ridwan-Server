@@ -1,13 +1,14 @@
 class ClassroomsController < ApplicationController
   def index
     @classrooms = policy_scope(Classroom)
+    @classrooms.order(name: :desc)
     render json: @classrooms
   end
 
   def show
     @classroom = Classroom.find(params[:id])
     authorize @classroom
-    render json: @classroom
+    render json: @classroom, include: [ :enrollments, :students ]
   end
 
   def create
