@@ -1,18 +1,12 @@
 # == Schema Information
 #
-# Table name: classrooms
+# Table name: students
 #
-#  id      :bigint           not null, primary key
-#  name    :string           not null
-#  user_id :bigint
-#
-# Indexes
-#
-#  index_classrooms_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
+#  id         :bigint           not null, primary key
+#  first_name :string           not null
+#  last_name  :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class StudentSerializer < ActiveModel::Serializer
