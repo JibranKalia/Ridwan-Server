@@ -1,5 +1,7 @@
 class StudentPolicy < ApplicationPolicy
   def create?
-    record.classrooms.map(&:user_id).include?(user.id)
+    if user.teacher?
+      record.classrooms.map { |c| c.teacher.user_id }.include?(user.id)
+    end
   end
 end
