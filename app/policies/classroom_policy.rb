@@ -1,6 +1,6 @@
 class ClassroomPolicy < ApplicationPolicy
   def create?
-    record.user == user
+    record.teacher.user == user
   end
 
   def update?
@@ -18,7 +18,7 @@ class ClassroomPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope
     def resolve
       if user.teacher?
-        scope.where(user: user)
+        scope.where(teacher: user.teacher)
       end
     end
   end

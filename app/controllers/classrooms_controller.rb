@@ -31,7 +31,7 @@ class ClassroomsController < ApplicationController
   private
 
   def permitted_attributes
-    %i[name user]
+    %i[name teacher]
   end
 
   def resource_params

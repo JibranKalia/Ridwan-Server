@@ -16,9 +16,9 @@
 #
 
 class Classroom < ApplicationRecord
-  belongs_to :user, required: true
+  belongs_to :teacher
   has_many :enrollments, dependent: :destroy
   has_many :students, through: :enrollments
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :user_id }
+  validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :teacher_id }
 end
