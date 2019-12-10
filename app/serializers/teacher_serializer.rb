@@ -1,17 +1,19 @@
 # == Schema Information
 #
-# Table name: students
+# Table name: teachers
 #
 #  id         :bigint           not null, primary key
 #  first_name :string           not null
 #  last_name  :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  user_id    :bigint
+#
+# Indexes
+#
+#  index_teachers_on_user_id  (user_id)
 #
 
-class StudentSerializer < ActiveModel::Serializer
+class TeacherSerializer < ActiveModel::Serializer
   attributes :id, :first_name, :last_name
 
-  has_many :enrollments
-  has_many :classrooms
+  belongs_to :user
 end

@@ -9,9 +9,7 @@
 #  confirmed_at           :datetime
 #  email                  :string
 #  encrypted_password     :string           default(""), not null
-#  first_name             :string           not null
 #  image                  :string
-#  last_name              :string           not null
 #  nickname               :string
 #  provider               :string           default("email"), not null
 #  remember_created_at    :datetime
@@ -39,9 +37,7 @@ class User < ApplicationRecord
          :validatable, :registerable
 
   include DeviseTokenAuth::Concerns::User
-
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  has_one :teacher
 
   enumerize :type, in: [:teacher, :student], predicates: true
 end

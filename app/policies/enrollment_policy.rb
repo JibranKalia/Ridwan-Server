@@ -1,6 +1,6 @@
 class EnrollmentPolicy < ApplicationPolicy
   def show?
-    record.classroom.user = user
+    record.classroom.teacher.user = user
   end
 
   def destroy?

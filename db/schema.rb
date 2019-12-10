@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_043805) do
+ActiveRecord::Schema.define(version: 2019_12_10_050742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_classrooms_on_user_id"
+    t.bigint "teacher_id", null: false
+    t.index ["teacher_id"], name: "index_classrooms_on_teacher_id"
   end
 
   create_table "enrollments", force: :cascade do |t|
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 2019_12_06_043805) do
     t.string "last_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,8 +62,6 @@ ActiveRecord::Schema.define(version: 2019_12_06_043805) do
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
     t.string "type", default: "teacher", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -64,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_043805) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "classrooms", "users"
+  add_foreign_key "classrooms", "teachers"
   add_foreign_key "enrollments", "classrooms"
   add_foreign_key "enrollments", "students"
 end
