@@ -16,6 +16,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  tokens                 :json
+#  type                   :string           default("teacher"), not null
 #  uid                    :string           default(""), not null
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
@@ -32,5 +33,5 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id
 
-  has_one :individual
+  has_one :teacher
 end

@@ -16,6 +16,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  tokens                 :json
+#  type                   :string           default("teacher"), not null
 #  uid                    :string           default(""), not null
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
@@ -31,9 +32,12 @@
 
 class User < ApplicationRecord
   self.inheritance_column = 'column_that_is_not_type'
+  extend Enumerize
   devise :database_authenticatable, :recoverable,
          :validatable, :registerable
 
   include DeviseTokenAuth::Concerns::User
-  has_one :individual
+  has_one :teacher
+
+  enumerize :type, in: [:teacher, :student], predicates: true
 end

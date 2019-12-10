@@ -30,19 +30,18 @@ ActiveRecord::Schema.define(version: 2019_12_09_215248) do
     t.index ["student_id"], name: "index_enrollments_on_student_id"
   end
 
-  create_table "individuals", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "type", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_individuals_on_user_id"
-  end
-
   create_table "students", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_215248) do
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "type", default: "teacher", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

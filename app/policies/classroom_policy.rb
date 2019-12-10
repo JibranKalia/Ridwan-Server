@@ -17,7 +17,7 @@ class ClassroomPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     def resolve
-      if user.individual.teacher?
+      if user.teacher?
         scope.where(user: user)
       end
     end
