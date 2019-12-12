@@ -22,4 +22,6 @@
 class Enrollment < ApplicationRecord
   belongs_to :classroom
   belongs_to :student
+
+  has_many :lessons
 end
