@@ -22,4 +22,6 @@
 class EnrollmentSerializer < ActiveModel::Serializer
   belongs_to :classroom
   belongs_to :student
+
+  has_many :lessons
 end
