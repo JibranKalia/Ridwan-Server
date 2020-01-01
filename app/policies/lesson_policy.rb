@@ -7,6 +7,10 @@ class LessonPolicy < ApplicationPolicy
     create?
   end
 
+  def update?
+    create?
+  end
+
   def destroy?
     create?
   end
