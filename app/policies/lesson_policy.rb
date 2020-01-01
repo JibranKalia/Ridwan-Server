@@ -6,4 +6,12 @@ class LessonPolicy < ApplicationPolicy
   def show?
     create?
   end
+
+  def update?
+    create?
+  end
+
+  def destroy?
+    create?
+  end
 end

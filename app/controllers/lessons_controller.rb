@@ -21,6 +21,16 @@ class LessonsController < ApplicationController
     end
   end
 
+  def update
+    @lesson = Lesson.find(params[:id])
+    authorize @lesson
+    if @lesson.update(resource_params)
+      render json: @lesson
+    else
+      render json: @lesson, status: :unprocessable_entity, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
+    end
+  end
+
   def destroy
     @lesson = Lesson.find(params[:id])
     authorize @lesson
