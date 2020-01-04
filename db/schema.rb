@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_155934) do
+ActiveRecord::Schema.define(version: 2020_01_04_071021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,17 +30,23 @@ ActiveRecord::Schema.define(version: 2019_12_22_155934) do
     t.index ["student_id"], name: "index_enrollments_on_student_id"
   end
 
-  create_table "lessons", force: :cascade do |t|
+  create_table "lesson_items", force: :cascade do |t|
     t.string "name", null: false
-    t.date "date", null: false
-    t.bigint "enrollment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "type", default: "type_one", null: false
     t.integer "from_surah"
     t.integer "from_ayah"
     t.integer "to_surah"
     t.integer "to_ayah"
+    t.bigint "lesson_id"
+    t.index ["lesson_id"], name: "index_lesson_items_on_lesson_id"
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.date "date", null: false
+    t.bigint "enrollment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["enrollment_id"], name: "index_lessons_on_enrollment_id"
   end
 
@@ -86,5 +92,6 @@ ActiveRecord::Schema.define(version: 2019_12_22_155934) do
   add_foreign_key "classrooms", "teachers"
   add_foreign_key "enrollments", "classrooms"
   add_foreign_key "enrollments", "students"
+  add_foreign_key "lesson_items", "lessons"
   add_foreign_key "lessons", "enrollments"
 end
