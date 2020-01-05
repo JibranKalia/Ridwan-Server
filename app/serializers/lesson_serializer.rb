@@ -21,4 +21,5 @@ class LessonSerializer < ActiveModel::Serializer
   attributes :id, :name, :date, :type, :from_surah, :from_ayah, :to_surah, :to_ayah
 
   belongs_to :enrollment
+  has_many :lesson_items
 end

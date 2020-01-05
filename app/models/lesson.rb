@@ -18,4 +18,6 @@
 #
 
 class Lesson < ApplicationRecord
+  belongs_to :enrollment
+  has_many :lesson_items, dependent: :destroy
 end
