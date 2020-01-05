@@ -1,4 +1,4 @@
-class LessonsItemsController < ApplicationController
+class LessonItemsController < ApplicationController
   def create
     @lesson_item = LessonItem.new(resource_params)
     authorize @lesson_item
