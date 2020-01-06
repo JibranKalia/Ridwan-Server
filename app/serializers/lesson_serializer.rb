@@ -4,12 +4,6 @@
 #
 #  id            :bigint           not null, primary key
 #  date          :date             not null
-#  from_ayah     :integer
-#  from_surah    :integer
-#  name          :string           not null
-#  to_ayah       :integer
-#  to_surah      :integer
-#  type          :string           default("type_one"), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  enrollment_id :bigint           not null
@@ -24,7 +18,8 @@
 #
 
 class LessonSerializer < ActiveModel::Serializer
-  attributes :id, :name, :date, :type, :from_surah, :from_ayah, :to_surah, :to_ayah
+  attributes :id, :date
 
   belongs_to :enrollment
+  has_many :lesson_items
 end

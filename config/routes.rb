@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :students
   resources :enrollments
   resources :lessons
+  resources :lesson_items, only: [:create, :update]
 end

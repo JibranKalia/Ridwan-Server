@@ -41,7 +41,7 @@ class LessonsController < ApplicationController
   private
 
   def permitted_attributes
-    %i[name date type enrollment from_surah from_ayah to_surah to_ayah]
+    %i[date enrollment]
   end
 
   def resource_params
