@@ -7,7 +7,7 @@ class EnrollmentsController < ApplicationController
   def show
     @enrollment = Enrollment.find(params[:id])
     authorize @enrollment
-    render json: @enrollment, include: [:classroom, :student, lessons: { lesson_items: {}} ]
+    render json: @enrollment, include: [:classroom, :student, lessons: { lesson_items: {} } ]
   end
 
   def create
