@@ -10,7 +10,7 @@ class LessonItemsController < ApplicationController
   end
 
   def update
-    @lesson_item = Lesson.find(params[:id])
+    @lesson_item = LessonItem.find(params[:id])
     authorize @lesson_item
     if @lesson_item.update(resource_params)
       render json: @lesson_item
