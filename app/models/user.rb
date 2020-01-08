@@ -39,5 +39,7 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
   has_one :teacher
 
+  validates :email, presence: true, uniqueness: true
+
   enumerize :type, in: [:teacher, :student], predicates: true
 end
