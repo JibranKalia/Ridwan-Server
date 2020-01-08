@@ -26,9 +26,11 @@ class UsersController < ApplicationController
 
       render json: @user
     rescue ActionController::ParameterMissing => e
-      render status: :bad_request
+      payload = { field_name: e.param, message: "#{e.param.to_s.titlecase} is required." }
+      render status: :bad_request, json: { errors: [ payload ] }
     rescue ActiveRecord::RecordInvalid => e
-      render json: @user, status: :unprocessable_entity, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
+      payload = e.record.errors.messages.map { |key, val| { field_name: key, message: val.first } }
+      render status: :bad_request, json: { errors: payload }
     end
 
   end
