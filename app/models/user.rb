@@ -37,7 +37,9 @@ class User < ApplicationRecord
          :validatable, :registerable
 
   include DeviseTokenAuth::Concerns::User
-  has_one :teacher
+  has_one :teacher, dependent: :destroy
+
+  validates :email, presence: true, uniqueness: true
 
   enumerize :type, in: [:teacher, :student], predicates: true
 end

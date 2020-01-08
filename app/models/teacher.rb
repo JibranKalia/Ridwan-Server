@@ -14,9 +14,9 @@
 
 class Teacher < ApplicationRecord
   belongs_to :user
-  has_many :classrooms
+  has_many :classrooms, dependent: :destroy
   has_many :enrollments, through: :classrooms
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: "Can only be letters" }
+  validates :last_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: "Can only be letters" }
 end
