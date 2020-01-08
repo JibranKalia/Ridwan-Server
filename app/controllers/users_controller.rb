@@ -9,21 +9,21 @@ class UsersController < ApplicationController
       password = params.require(:password)
       password_confirmation = params.require(:password_confirmation)
 
-      @user = User.new(
-        email: email,
-        password: password,
-        password_confirmation: password_confirmation
-      )
-      @user.save!
+      ActiveRecord::Base.transaction do
+        @user = User.new(
+          email: email,
+          password: password,
+          password_confirmation: password_confirmation
+        )
+        @user.save!
 
-      @teacher = Teacher.new(
-        first_name: first_name,
-        last_name: last_name,
-        user: @user
-      )
-
-      @teacher.save!
-
+        @teacher = Teacher.new(
+          first_name: first_name,
+          last_name: last_name,
+          user: @user
+        )
+        @teacher.save!
+      end
       render json: @user
     rescue ActionController::ParameterMissing => e
       payload = { field_name: e.param, message: "#{e.param.to_s.titlecase} is required." }
