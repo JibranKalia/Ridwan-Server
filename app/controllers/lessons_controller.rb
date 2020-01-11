@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LessonsController < ApplicationController
   def index
     @lessons = policy_scope(Lesson)
@@ -8,7 +10,7 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     authorize @lesson
-    render json: @lesson, include: [ :enrollments, :students ]
+    render json: @lesson, include: %i[enrollments students]
   end
 
   def create

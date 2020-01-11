@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
   include Pundit
@@ -11,12 +13,12 @@ class ApplicationController < ActionController::API
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name email password password_confirmation])
   end
 
   def user_not_authorized(exception)
     self.status        = 401
     self.content_type  = 'application/json'
-    self.response_body = { errors: [{ status: '401', detail: exception.message }]}.to_json
+    self.response_body = { errors: [{ status: '401', detail: exception.message }] }.to_json
   end
 end

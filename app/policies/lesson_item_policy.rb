@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LessonItemPolicy < ApplicationPolicy
   def create?
     record.lesson.enrollment.classroom.teacher.user == user

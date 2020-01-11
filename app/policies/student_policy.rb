@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StudentPolicy < ApplicationPolicy
   def create?
     if user.teacher?

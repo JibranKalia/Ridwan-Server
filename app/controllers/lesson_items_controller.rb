@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LessonItemsController < ApplicationController
   def create
     @lesson_item = LessonItem.new(resource_params)

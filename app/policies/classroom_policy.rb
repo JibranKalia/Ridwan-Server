@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ClassroomPolicy < ApplicationPolicy
   def create?
     record.teacher.user == user
@@ -17,9 +19,7 @@ class ClassroomPolicy < ApplicationPolicy
 
   class Scope < ApplicationPolicy::Scope
     def resolve
-      if user.teacher?
-        scope.where(teacher: user.teacher)
-      end
+      scope.where(teacher: user.teacher) if user.teacher?
     end
   end
 end

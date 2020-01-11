@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FixClassroomItems < ActiveRecord::Migration[6.0]
   def change
     remove_reference :lesson_items, :enrollment, index: true, foreign_key: true

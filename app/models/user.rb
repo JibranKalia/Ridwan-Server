@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -41,5 +43,5 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
-  enumerize :type, in: [:teacher, :student], predicates: true
+  enumerize :type, in: %i[teacher student], predicates: true
 end

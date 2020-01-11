@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EnrollmentsController < ApplicationController
   def index
     @enrollments = policy_scope(Enrollment)
