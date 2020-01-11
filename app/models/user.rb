@@ -41,7 +41,7 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
   has_one :teacher, dependent: :destroy
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
   enumerize :type, in: %i[teacher student], predicates: true
 end

@@ -64,6 +64,8 @@ GEM
     annotate (3.0.3)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
+    auto_strip_attributes (2.5.0)
+      activerecord (>= 4.0)
     bcrypt (3.1.13)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -197,6 +199,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.10)
   annotate
+  auto_strip_attributes (~> 2.5)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   devise_token_auth
