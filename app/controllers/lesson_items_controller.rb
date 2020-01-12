@@ -24,7 +24,7 @@ class LessonItemsController < ApplicationController
   private
 
   def permitted_attributes
-    %i[lesson name from_surah from_ayah to_surah to_ayah]
+    %i[lesson name from_surah from_ayah to_surah to_ayah quality_one quality_two]
   end
 
   def resource_params

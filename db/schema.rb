@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_04_071021) do
+ActiveRecord::Schema.define(version: 2020_01_12_035445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2020_01_04_071021) do
     t.integer "to_surah"
     t.integer "to_ayah"
     t.bigint "lesson_id"
+    t.integer "quality_one", default: 0, null: false
+    t.integer "quality_two", default: 0, null: false
     t.index ["lesson_id"], name: "index_lesson_items_on_lesson_id"
   end
 
