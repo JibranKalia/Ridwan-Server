@@ -104,4 +104,14 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV['SMTP_USERNAME'],
+    :password => ENV['SMTP_PASSWORD'],
+    :domain => ENV['SMTP_DOMAIN'], 
+    :address => "smtp.sendgrid.net",
+    :port => ENV['SMTP_PORT'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end

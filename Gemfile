@@ -34,6 +34,7 @@ gem 'rack-cors'
 gem 'rack-timeout'
 
 group :development, :test do
+  gem 'dotenv-rails'
 end
 
 group :development do
