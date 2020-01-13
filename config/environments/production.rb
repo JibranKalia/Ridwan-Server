@@ -105,11 +105,15 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
+  config.action_mailer.default_url_options = { :host => ENV['API_HOST']}
+  config.action_mailer.default_options = { from: 'support@ridwan.io' }
+  config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
-    :user_name => ENV['SMTP_USERNAME'],
-    :password => ENV['SMTP_PASSWORD'],
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
     :domain => ENV['SMTP_DOMAIN'], 
-    :address => "smtp.sendgrid.net",
+    :address => ENV['SMTP_ADDRESS'],
     :port => ENV['SMTP_PORT'],
     :authentication => :plain,
     :enable_starttls_auto => true
