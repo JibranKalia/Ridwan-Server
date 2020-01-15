@@ -32,6 +32,7 @@ gem 'pg'
 gem 'pundit'
 gem 'rack-cors'
 gem 'rack-timeout'
+gem 'rollbar'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -45,7 +46,6 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'pry-theme'
-  gem 'rollbar'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
