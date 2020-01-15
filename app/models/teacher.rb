@@ -4,10 +4,8 @@
 #
 # Table name: teachers
 #
-#  id         :bigint           not null, primary key
-#  first_name :string           not null
-#  last_name  :string           not null
-#  user_id    :bigint
+#  id      :bigint           not null, primary key
+#  user_id :bigint
 #
 # Indexes
 #
