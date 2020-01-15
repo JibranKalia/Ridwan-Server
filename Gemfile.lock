@@ -174,7 +174,6 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rollbar (2.23.2)
     ruby_dep (1.5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
@@ -221,7 +220,6 @@ DEPENDENCIES
   rack-cors
   rack-timeout
   rails (~> 6.0.1)
-  rollbar
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
