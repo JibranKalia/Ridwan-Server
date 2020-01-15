@@ -32,6 +32,7 @@ gem 'pg'
 gem 'pundit'
 gem 'rack-cors'
 gem 'rack-timeout'
+gem 'rollbar'
 
 group :development, :test do
   gem 'dotenv-rails'
