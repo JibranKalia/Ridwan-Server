@@ -45,5 +45,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
+  validates :first_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: 'Can only be letters' }
+  validates :last_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: 'Can only be letters' }
+
   enumerize :type, in: %i[teacher student], predicates: true
 end

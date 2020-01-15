@@ -35,7 +35,7 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :type
+  attributes :id, :email, :type, :first_name, :last_name
 
   has_one :teacher
 end
