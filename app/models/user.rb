@@ -19,8 +19,8 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :string           default("none"), not null
 #  tokens                 :json
-#  type                   :string           default("teacher"), not null
 #  uid                    :string           default(""), not null
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
@@ -35,7 +35,6 @@
 #
 
 class User < ApplicationRecord
-  self.inheritance_column = 'column_that_is_not_type'
   extend Enumerize
   devise :database_authenticatable, :recoverable,
          :validatable, :registerable
@@ -48,5 +47,5 @@ class User < ApplicationRecord
   validates :first_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: 'Can only be letters' }
   validates :last_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: 'Can only be letters' }
 
-  enumerize :type, in: %i[teacher student], predicates: true
+  enumerize :role, in: %i[none teacher student], predicates: true, required: true
 end

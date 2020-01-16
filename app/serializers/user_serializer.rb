@@ -19,8 +19,8 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :string           default("none"), not null
 #  tokens                 :json
-#  type                   :string           default("teacher"), not null
 #  uid                    :string           default(""), not null
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
@@ -35,7 +35,7 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :type, :first_name, :last_name
+  attributes :id, :email, :role, :first_name, :last_name
 
   has_one :teacher
 end
