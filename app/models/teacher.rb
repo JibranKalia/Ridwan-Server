@@ -17,5 +17,5 @@ class Teacher < ApplicationRecord
   has_many :classrooms, dependent: :destroy
   has_many :enrollments, through: :classrooms
 
-  auto_strip_attributes :first_name, :last_name
+  validates :user_id, uniqueness: true
 end

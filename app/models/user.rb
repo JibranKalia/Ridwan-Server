@@ -48,4 +48,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: 'Can only be letters' }
 
   enumerize :role, in: %i[none teacher student], predicates: true, required: true
+
+  auto_strip_attributes :first_name, :last_name
 end
