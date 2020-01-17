@@ -11,6 +11,12 @@ class TeachersController < ApplicationController
       render json: @teacher, status: :unprocessable_entity, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
     end
   end
+  
+  def show
+    @teacher = Teacher.find(params[:id])
+    authorize @teacher
+    render json: @teacher
+  end
 
   private
 
