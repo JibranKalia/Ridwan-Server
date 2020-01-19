@@ -4,7 +4,7 @@ class AddNameFieldsToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :last_name, :string
 
     Teacher.all.each do |t|
-      t.user&.update(first_name: t.first_name, last_name: t.last_name)
+      t.user&.update(first_name: t.first_name, last_name: t.last_name, role: :teacher)
     end
 
     change_column_null :users, :first_name, false, 'First Name'
