@@ -1,7 +1,5 @@
 # frozen_string_literal: true
-
 class TeachersController < ApplicationController
-
   def create
     @teacher = Teacher.new(resource_params)
     authorize @teacher

@@ -7,16 +7,8 @@ class AddNameFieldsToUsers < ActiveRecord::Migration[6.0]
       t.user&.update(first_name: t.first_name, last_name: t.last_name)
     end
 
-    User.where(first_name: nil).each do |u|
-      u.update(first_name: "First Name")
-    end
-
-    User.where(last_name: nil).each do |u|
-      u.update(last_name: "Last Name")
-    end
-
-    change_column :users, :first_name, :string, null: false
-    change_column :users, :last_name, :string, null: false
+    change_column_null :users, :first_name, false, 'First Name'
+    change_column_null :users, :last_name, false, 'Last Name'
 
     remove_column :teachers, :first_name
     remove_column :teachers, :last_name

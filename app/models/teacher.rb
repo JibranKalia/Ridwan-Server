@@ -14,6 +14,7 @@
 
 class Teacher < ApplicationRecord
   belongs_to :user
+
   has_many :classrooms, dependent: :destroy
   has_many :enrollments, through: :classrooms
 
