@@ -11,14 +11,16 @@
 #  confirmed_at           :datetime
 #  email                  :string
 #  encrypted_password     :string           default(""), not null
+#  first_name             :string           not null
 #  image                  :string
+#  last_name              :string           not null
 #  nickname               :string
 #  provider               :string           default("email"), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :string           default("none"), not null
 #  tokens                 :json
-#  type                   :string           default("teacher"), not null
 #  uid                    :string           default(""), not null
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
@@ -33,7 +35,7 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :type
+  attributes :id, :email, :role, :first_name, :last_name
 
   has_one :teacher
 end

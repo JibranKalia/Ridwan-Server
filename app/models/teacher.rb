@@ -4,10 +4,8 @@
 #
 # Table name: teachers
 #
-#  id         :bigint           not null, primary key
-#  first_name :string           not null
-#  last_name  :string           not null
-#  user_id    :bigint
+#  id      :bigint           not null, primary key
+#  user_id :bigint
 #
 # Indexes
 #
@@ -16,11 +14,9 @@
 
 class Teacher < ApplicationRecord
   belongs_to :user
+
   has_many :classrooms, dependent: :destroy
   has_many :enrollments, through: :classrooms
 
-  auto_strip_attributes :first_name, :last_name
-
-  validates :first_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: 'Can only be letters' }
-  validates :last_name, presence: true, format: { with: /\A[a-zA-Z]*\z/, message: 'Can only be letters' }
+  validates :user_id, uniqueness: true
 end
