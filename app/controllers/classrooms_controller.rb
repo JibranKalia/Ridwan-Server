@@ -3,7 +3,7 @@
 class ClassroomsController < ApplicationController
   def index
     @classrooms = policy_scope(Classroom)
-    @classrooms.order(name: :desc)
+    @classrooms = @classrooms.order(name: :asc)
     render json: @classrooms
   end
 
