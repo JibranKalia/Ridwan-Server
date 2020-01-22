@@ -22,7 +22,7 @@
 #
 
 class EnrollmentSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :student_name
 
   belongs_to :classroom
   belongs_to :student

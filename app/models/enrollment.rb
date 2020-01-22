@@ -26,4 +26,8 @@ class Enrollment < ApplicationRecord
   belongs_to :student
 
   has_many :lessons
+
+  def student_name
+    "#{student.first_name} #{student.last_name}"
+  end
 end
