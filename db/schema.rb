@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_01_24_031058) do
     t.bigint "lesson_id"
     t.integer "quality_one", default: 0, null: false
     t.integer "quality_two", default: 0, null: false
-    t.integer "ratings"
+    t.integer "rating"
     t.index ["lesson_id"], name: "index_lesson_items_on_lesson_id"
   end
 

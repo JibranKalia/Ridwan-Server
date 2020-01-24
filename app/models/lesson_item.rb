@@ -10,7 +10,7 @@
 #  name        :string           not null
 #  quality_one :integer          default(0), not null
 #  quality_two :integer          default(0), not null
-#  ratings     :integer
+#  rating      :integer
 #  to_ayah     :integer
 #  to_surah    :integer
 #  created_at  :datetime         not null
