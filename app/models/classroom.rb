@@ -30,7 +30,7 @@ class Classroom < ApplicationRecord
 
   def create_default_lesson_types
     DEFAULT_LESSON_TYPES.each_with_index do |name, index|
-      LessonType.create(classroom: self, name: name, position: index + 1)
+      LessonType.find_or_create_by(classroom_id: id, name: name, position: index + 1)
     end
   end
 end
