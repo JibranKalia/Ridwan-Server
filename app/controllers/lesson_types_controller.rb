@@ -1,6 +1,6 @@
 class LessonTypesController < ApplicationController
   def update
-    @lesson_type_type = LessonType.find(params[:id])
+    @lesson_type = LessonType.find(params[:id])
     authorize @lesson_type
     if @lesson_type.update(resource_params)
       render json: @lesson_type
