@@ -29,7 +29,7 @@
 #
 
 class LessonItemSerializer < ActiveModel::Serializer
-  attributes :id, :from_surah, :from_ayah, :to_surah, :to_ayah, :quality_one, :quality_two, :rating
+  attributes :id, :from_surah, :from_ayah, :to_surah, :to_ayah, :quality_one, :quality_two, :rating, :created_at
 
   belongs_to :lesson
   belongs_to :lesson_type
