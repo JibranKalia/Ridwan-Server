@@ -22,4 +22,5 @@ class LessonType < ApplicationRecord
   validates :name, presence: true
   validates :position, presence: true, uniqueness: { scope: :classroom_id }
   belongs_to :classroom
+  has_many :lesson_items
 end
