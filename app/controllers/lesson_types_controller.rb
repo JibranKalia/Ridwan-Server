@@ -1,4 +1,13 @@
 class LessonTypesController < ApplicationController
+  def index
+    @lesson_types = policy_scope(LessonType)
+    if params[:enrollment_id].present?
+      enrollment = Enrollment.find(params[:enrollment_id])
+      @lesson_types = @lesson_types.where(classroom: enrollment.classroom)
+    end
+    render json: @lesson_types
+  end
+
   def update
     @lesson_type = LessonType.find(params[:id])
     authorize @lesson_type

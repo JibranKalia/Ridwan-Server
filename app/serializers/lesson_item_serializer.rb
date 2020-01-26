@@ -7,7 +7,6 @@
 #  id             :bigint           not null, primary key
 #  from_ayah      :integer
 #  from_surah     :integer
-#  name           :string           not null
 #  quality_one    :integer          default(0), not null
 #  quality_two    :integer          default(0), not null
 #  rating         :integer
@@ -30,7 +29,8 @@
 #
 
 class LessonItemSerializer < ActiveModel::Serializer
-  attributes :id, :name, :from_surah, :from_ayah, :to_surah, :to_ayah, :quality_one, :quality_two, :rating
+  attributes :id, :from_surah, :from_ayah, :to_surah, :to_ayah, :quality_one, :quality_two, :rating, :created_at
 
   belongs_to :lesson
+  belongs_to :lesson_type
 end
