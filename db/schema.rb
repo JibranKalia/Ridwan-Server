@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2020_01_26_184819) do
     t.index ["classroom_id"], name: "index_lesson_types_on_classroom_id"
   end
 
+  create_table "lesson_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "position", default: 1, null: false
+    t.bigint "classroom_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classroom_id"], name: "index_lesson_types_on_classroom_id"
+  end
+
   create_table "lessons", force: :cascade do |t|
     t.date "date", null: false
     t.bigint "enrollment_id", null: false
