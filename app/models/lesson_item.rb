@@ -7,7 +7,6 @@
 #  id             :bigint           not null, primary key
 #  from_ayah      :integer
 #  from_surah     :integer
-#  name           :string           not null
 #  quality_one    :integer          default(0), not null
 #  quality_two    :integer          default(0), not null
 #  rating         :integer
@@ -33,7 +32,6 @@ class LessonItem < ApplicationRecord
   belongs_to :lesson
   belongs_to :lesson_type
 
-  validates :name, presence: true
   validates :from_surah, presence: true
   validates :from_ayah, presence: true
   validates :to_surah, presence: true
