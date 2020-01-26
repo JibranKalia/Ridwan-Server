@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :enrollments
   resources :lessons
   resources :lesson_items, only: %i[create update]
+  resources :lesson_types, only: %i[update]
 end

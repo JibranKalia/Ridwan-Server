@@ -22,4 +22,5 @@ class ClassroomSerializer < ActiveModel::Serializer
 
   has_many :enrollments
   has_many :students
+  has_many :lesson_types
 end
