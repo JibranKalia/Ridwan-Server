@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2020_01_26_190816) do
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "role", default: "none", null: false
+    t.string "role", default: "teacher", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

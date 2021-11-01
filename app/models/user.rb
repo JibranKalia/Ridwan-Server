@@ -19,7 +19,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  role                   :string           default("none"), not null
+#  role                   :string           default("teacher"), not null
 #  tokens                 :json
 #  uid                    :string           default(""), not null
 #  unconfirmed_email      :string
